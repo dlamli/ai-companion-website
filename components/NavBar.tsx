@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Sparkle } from "lucide-react";
+import { Sparkle } from "lucide-react";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { UserButton } from "@clerk/nextjs";
