@@ -29,7 +29,7 @@ const Categories = ({ data }: CategoriesProps) => {
       <button
         onClick={() => handleClick(undefined)}
         className={cn(
-          `flex items-center text-center text-xs px-2 md:px-4 py-2 md:px-4 rounded-md bg-primary/10 hover:opacity-75 transition`,
+          `flex items-center text-center text-xs px-2 md:px-4 py-2 rounded-md bg-primary/10 hover:opacity-75 transition`,
           !categoryId ? "bg-primary/25" : "bg-primary/10"
         )}
       >
