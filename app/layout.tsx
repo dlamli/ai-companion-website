@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Ai Companion Website",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body className={cn(`bg-secondary`, inter.className)}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
+            <Toaster/>
           </ThemeProvider>
         </body>
       </html>
