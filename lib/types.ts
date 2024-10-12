@@ -20,3 +20,14 @@ export type ImageUploadProps = {
   onChange: (src: string) => void;
   disabled?: boolean;
 };
+
+export type RootPageProps = {
+  searchParams: {
+    categoryId?: string;
+    name: string;
+  };
+};
+
+export type CompanionProps = {
+  data: (Companion & { _count: { messages: number } })[] | null;
+};

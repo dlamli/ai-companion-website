@@ -1,4 +1,6 @@
 export * from "./Categories";
+export * from "./Companions";
+export * from "./ImageUpload";
 export * from "./MobileSidebar";
 export * from "./ModeToggle";
 export * from "./NavBar";
