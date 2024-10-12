@@ -1,4 +1,6 @@
+export * from "./BotAvatar";
 export * from "./Categories";
+export * from "./ChatHeader";
 export * from "./Companions";
 export * from "./ImageUpload";
 export * from "./MobileSidebar";

@@ -1,4 +1,4 @@
-import { Category, Companion } from "@prisma/client";
+import { Category, Companion, Message } from "@prisma/client";
 
 export type CategoriesProps = {
   data: Category[];
@@ -30,4 +30,28 @@ export type RootPageProps = {
 
 export type CompanionProps = {
   data: (Companion & { _count: { messages: number } })[] | null;
+};
+
+export type ChatPageProps = {
+  params: {
+    chatId: string;
+  };
+};
+
+export type ChatClientProps = {
+  companion: Companion & {
+    messages: Message[];
+    _count: { messages: number };
+  };
+};
+
+export type ChatHeaderProps = {
+  companion: Companion & {
+    messages: Message[];
+    _count: { messages: number };
+  };
+};
+
+export type BotAvatarProps = {
+  src: string;
 };
