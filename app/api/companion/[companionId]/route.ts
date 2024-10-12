@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import { prismaDB } from "@/lib";
@@ -51,6 +51,31 @@ export const PATCH = async (
     return NextResponse.json(companion);
   } catch (error) {
     console.log(`Companion POST - Error: ${error}`);
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+};
+
+export const DELETE = async (
+  req: Request,
+  { params }: { companionId: string }
+) => {
+  try {
+    const { userId } = auth();
+
+    if (!userId) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
+    const companion = await prismaDB.companion.delete({
+      where: {
+        userId,
+        id: params.companionId,
+      },
+    });
+
+    return NextResponse.json(companion);
+  } catch (error) {
+    console.log(`Companion DELETE - Error: ${error}`);
     return new NextResponse("Internal Error", { status: 500 });
   }
 };
