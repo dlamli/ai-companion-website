@@ -41,7 +41,7 @@ const NavBar = () => {
           <Sparkle className="size-4 fill-white text-white" />
         </Button>
         <ModeToggle />
-        <UserButton />
+        <UserButton afterSwitchSessionUrl="/" />
       </div>
     </div>
   );
