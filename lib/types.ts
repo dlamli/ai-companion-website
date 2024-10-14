@@ -82,3 +82,9 @@ export type ChatMessageProps = {
   isLoading?: boolean;
   src?: string;
 };
+
+export type CompanionKey = {
+  companionName: string;
+  modelName: string;
+  userId: string;
+};

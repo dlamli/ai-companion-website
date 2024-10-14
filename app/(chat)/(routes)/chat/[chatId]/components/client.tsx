@@ -1,12 +1,13 @@
 "use client";
+
+import { useCompletion } from "ai/react";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useCompletion } from "ai/react";
 
-import { type ChatMessageProps, type ChatClientProps } from "@/lib";
+import { ChatClientProps, ChatMessageProps } from "@/lib";
 import ChatHeader from "@/components/ChatHeader";
-import ChatForm from "@/components/ChatForm";
 import ChatMessages from "@/components/ChatMessages";
+import ChatForm from "@/components/ChatForm";
 
 export const ChatClient = ({ companion }: ChatClientProps) => {
   const router = useRouter();
@@ -16,8 +17,8 @@ export const ChatClient = ({ companion }: ChatClientProps) => {
 
   const { input, isLoading, handleInputChange, handleSubmit, setInput } =
     useCompletion({
-      api: `/api/check/${companion.id}`,
-      onFinish(prompt, completion) {
+      api: `/api/chat/${companion.id}`,
+      onFinish(_prompt, completion) {
         const systemMessage: ChatMessageProps = {
           role: "system",
           content: completion,
@@ -51,9 +52,9 @@ export const ChatClient = ({ companion }: ChatClientProps) => {
       />
       <ChatForm
         isLoading={isLoading}
-        onSubmit={onSubmit}
         input={input}
         handleInputChange={handleInputChange}
+        onSubmit={onSubmit}
       />
     </div>
   );
